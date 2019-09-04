@@ -7,8 +7,17 @@
 </head>
 <body>
     <main>
-        <div id="drawing-container"></div>
-        <div id="social-container"></div>
+        <div>
+            <div id="drawing-container"></div>
+        </div>
+        <div>
+            <div id="social-container">
+                <div id="scoreboard-container"></div>
+                <div id="chat-container">
+                    
+                </div>
+            </div>
+        </div>
     </main>
 </body>
 </html>
