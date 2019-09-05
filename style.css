@@ -3,29 +3,53 @@
 }
 
 main {
-    display: flex;
     box-sizing: border-box;
     width: 100%;
     height: 100vh;
 }
 
-main > div {
+main .row {
+   display: flex; 
+}
+
+main .row:first-child {
+    height: 15%;
+    min-height: 100px;
+}
+
+main .row:last-child {
+    height: 85%;
+    min-height: 600px;
+}
+
+main .row > div {
     padding: 16px;
 }
 
-main > div:first-child {
+main .row > div:first-child {
     flex: 1;
     width: 75%;
     padding-right: 8px;
 }
 
-main > div:last-child {
+main .row > div:last-child {
     width: 25%;
     padding-left: 8px;
 }
 
-main > div > div {
+main .row > div > div {
     width: 100%;
     height: 100%;
     border: 1px solid #DDDDDD;
+}
+
+#scoreboard-container {
+    width: 100%;
+}
+
+#chat-container input {
+    width: 100%;
+    padding: 6px;
+    box-sizing: border-box;
+    outline: none;
 }
