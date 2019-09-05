@@ -7,7 +7,7 @@
 	</head>
 	<body>
 		<main>
-
+			<!-- Marcin jesteś debilem, ale przynajmniej się starasz <3 -->
 		</main>
 	</body>
 </html>
