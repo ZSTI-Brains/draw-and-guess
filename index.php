@@ -8,6 +8,7 @@
 	</head>
 	<body>
 		<main>
+			<!-- Teścik - JS -->
 			<div class="row scoreboard">
 				<div id="scoreboard-container"></div>
 			</div>
