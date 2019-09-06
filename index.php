@@ -7,7 +7,16 @@
 	</head>
 	<body>
 		<main>
-			<!-- JD! Marcin jesteś debilem, ale przynajmniej się starasz <3 -->
+			<div class="row scoreboard">
+				<div id="scoreboard-container"></div>
+			</div>
+			<div class="row main">
+				<div id="drawing-container"></div>
+				<div>
+					<div></div>
+					<div></div>
+				</div>
+			</div>
 		</main>
 	</body>
 </html>
