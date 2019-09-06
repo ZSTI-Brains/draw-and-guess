@@ -27,5 +27,7 @@
 				</div>
 			</div>
 		</main>
+		<script src="jquery-3.4.1.min.js"></script>
+		<script src="chat.js"></script>
 	</body>
 </html>
