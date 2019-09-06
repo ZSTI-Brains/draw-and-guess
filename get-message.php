@@ -9,12 +9,14 @@
     $query = "SELECT * FROM chat_messages";
 
     if ($result = $mysqli->query($query)) {
-        $msg = array();
+        /*$msg = array();
 
         while ($row = $result->fetch_assoc())
             $msg[] = $row;
 
-        echo json_encode($msg);
+        echo json_encode($msg);*/
+        while ($row = $result->fetch_assoc())
+            echo "<div class=\"chat-message\"" . $row["message"] . "</div>";
     }
 
     $mysqli->close();

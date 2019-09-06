@@ -63,6 +63,11 @@ main .row.main > div:last-child {
     height: calc(100% - 35px);
 }
 
+#chat-messages-container .chat-message {
+    padding: .8rem;
+    background: linear-gradient(#997ef1, #866fef);
+}
+
 #chat-input-container input {
     width: 100%;
     padding: .6rem;

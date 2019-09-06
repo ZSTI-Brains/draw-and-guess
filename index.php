@@ -16,7 +16,9 @@
 				<div>
 					<div id="word-container"></div>
 					<div id="chat-container">
-						<div id="chat-messages-container"></div>
+						<div id="chat-messages-container">
+							<?php include("get-message.php"); ?>
+						</div>
 						<div id="chat-input-container">
 							<input type="text" placeholder="Type your thought here...">
 						</div>
