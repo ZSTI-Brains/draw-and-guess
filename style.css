@@ -62,6 +62,7 @@ main .row.main > div:last-child {
 #chat-messages-container {
     height: calc(100% - 35px);
     padding: .8rem;
+    overflow: auto;
 }
 
 #chat-messages-container .chat-message {
@@ -74,6 +75,12 @@ main .row.main > div:last-child {
 
 #chat-messages-container .chat-message:not(:last-child) {
     margin-bottom: 1.2rem;
+}
+
+#chat-messages-container .nickname {
+    margin-top: .4rem;
+    font: 700 1rem 'Open Sans';
+    text-align: right;
 }
 
 #chat-input-container input {

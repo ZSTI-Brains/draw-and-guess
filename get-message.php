@@ -6,7 +6,7 @@
 
     $mysqli = new mysqli($db_server, $db_user, $db_pass, $db_name);
 
-    $query = "SELECT * FROM chat_messages";
+    $query = "SELECT chat_messages.message, users.nickname FROM chat_messages INNER JOIN users ON chat_messages.user_id = users.id";
 
     if ($result = $mysqli->query($query)) {
         /*$msg = array();
@@ -16,7 +16,7 @@
 
         echo json_encode($msg);*/
         while ($row = $result->fetch_assoc())
-            echo "<div class=\"chat-message\">" . $row["message"] . "</div>";
+            echo "<div class=\"chat-message\"><p class=\"message\">" . $row["message"] . "</p><p class=\"nickname\">" . $row["nickname"] . "</p></div>";
     }
 
     $mysqli->close();
