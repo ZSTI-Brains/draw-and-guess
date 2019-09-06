@@ -2,15 +2,22 @@
     margin: 0;
 }
 
+html {
+    font-size: 10px;
+}
+
 main {
-    box-sizing: border-box;
     width: 100%;
-    min-height: 100vh;
+    padding: .4rem;
+}
+
+main, main * {
+    box-sizing: border-box;
 }
 
 main .row {
     display: flex;
-    padding: .5rem;
+    padding: .4rem;
 }
 
 main .row > div {
@@ -21,21 +28,46 @@ main .row.scoreboard {
     height: 100px;
 }
 
+main .row.scoreboard div {
+    background: #EEEEEE;
+}
+
 main .row.scoreboard > div {
     width: 100%;
 }
 
 main .row.main {
-    display: flex;
-    height: calc(100% - 100px);
+    height: calc(100vh - (100px + .8rem));
     min-height: 450px;
 }
 
 main .row.main > div:first-child {
     width: 80%;
-    margin-right: 1rem;
+    margin-right: .8rem;
 }
 
 main .row.main > div:last-child {
     width: 20%;
+    min-width: 200px;
+}
+
+#word-container {
+    height: 150px;
+}
+
+#chat-container {
+    height: calc(100% - 150px);
+}
+
+#chat-messages-container {
+    height: calc(100% - 35px);
+}
+
+#chat-input-container input {
+    width: 100%;
+    padding: .6rem;
+    font: 1.4rem 'Open Sans';
+    border: none;
+    border-top: 1px solid #DDDDDD;
+    outline: none;
 }
