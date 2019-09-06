@@ -61,11 +61,19 @@ main .row.main > div:last-child {
 
 #chat-messages-container {
     height: calc(100% - 35px);
+    padding: .8rem;
 }
 
 #chat-messages-container .chat-message {
     padding: .8rem;
-    background: linear-gradient(#997ef1, #866fef);
+    background: linear-gradient(to right, #997ef1, #866fef);
+    color: white;
+    font: 1.4rem 'Open Sans';
+    border-radius: .8rem;
+}
+
+#chat-messages-container .chat-message:not(:last-child) {
+    margin-bottom: 1.2rem;
 }
 
 #chat-input-container input {

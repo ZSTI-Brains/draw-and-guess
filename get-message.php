@@ -16,7 +16,7 @@
 
         echo json_encode($msg);*/
         while ($row = $result->fetch_assoc())
-            echo "<div class=\"chat-message\"" . $row["message"] . "</div>";
+            echo "<div class=\"chat-message\">" . $row["message"] . "</div>";
     }
 
     $mysqli->close();
