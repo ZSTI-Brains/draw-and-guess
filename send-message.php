@@ -4,10 +4,12 @@
     $db_pass = "";
     $db_name = "draw_and_guess";
 
-    if (!empty($_GET)) {
+    if (isset($_POST["message"])) {
+        $message = $_POST["message"];
+        $date = date("Y-m-d H:i:s");
         $mysqli = new mysqli($db_server, $db_user, $db_pass, $db_name);
 
-        $query = "SELECT * FROM chat_messages LIMIT 1";
+        $query = "INSERT INTO chat_messages VALUES ('', 2, 1, $message, $date)";
         $result = $mysqli->query($query);
 
         while ($row = $result->fetch_row())
