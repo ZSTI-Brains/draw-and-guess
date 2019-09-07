@@ -1,13 +1,11 @@
 var chatMessagesContainer = document.querySelector("#chat-messages-container");
 var messages = [];
 
-window.setInterval(checkMessage, 1000);
-
 function getMessageId() {
     return messages.length === 0 ? 0 : messages[messages.length - 1].id;
 }
 
-function checkMessage() {
+function getMessage() {
     $.ajax({
         type: "post",
         data: { messageId: getMessageId() },
@@ -39,3 +37,6 @@ function checkMessage() {
         }
     });
 }
+
+getMessage();
+setInterval(getMessage, 1000);
