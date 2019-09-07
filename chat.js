@@ -62,5 +62,5 @@ function sendMessage() {
         });
     }
     text.placeholder = "Type your thought here...";
-    textValue = " ";
+    textValue = "  ";
 }
