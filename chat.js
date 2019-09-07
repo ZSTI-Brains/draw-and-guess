@@ -39,3 +39,26 @@ function checkMessage() {
         }
     });
 }
+
+var inputContainer = document.querySelector("#chat-input-container");
+
+inputContainer.addEventListener("keydown", function(event){
+    if(event.key === "Enter") {
+        sendMessage();   
+    }
+});
+
+function sendMessage() {
+    var text = document.querySelector("input[type=text]").value;
+    console.log(text);
+    
+    $.ajax({
+        type: "post",
+        data: { message: text },
+        url: "get-message.php"
+    })
+}
+
+
+
+
