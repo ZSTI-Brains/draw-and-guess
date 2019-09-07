@@ -61,6 +61,5 @@ function sendMessage() {
             url: "send-message.php"
         });
     }
-    text.placeholder = "Type your thought here...";
-    textValue = "  ";
+    text.value = "  ";
 }
