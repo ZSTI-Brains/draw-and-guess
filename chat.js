@@ -51,7 +51,6 @@ inputContainer.addEventListener("keydown", function(event) {
 });
 
 function sendMessage() {
-<<<<<<< HEAD
     var text = document.querySelector("input[type=text]");
     var textValue = text.value;
     if(textValue !== ""){
@@ -64,14 +63,4 @@ function sendMessage() {
     }
     text.placeholder = "Type your thought here...";
     textValue = "  ";
-=======
-    var text = document.querySelector("input[type=text]").value;
-    console.log(text);
-
-    $.ajax({
-        type: "post",
-        data: { message: text },
-        url: "send-message.php"
-    })
->>>>>>> ba73a0caf77d7963c8bd15dd7bf0bcdf83b2f485
 }
