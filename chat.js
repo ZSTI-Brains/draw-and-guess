@@ -61,5 +61,5 @@ function sendMessage() {
             url: "send-message.php"
         });
     }
-    text.value = "  ";
+    text.value = "";
 }
