@@ -1,15 +1,18 @@
-var send = document.querySelector("input[type=text]"); //test
 var chatMessagesContainer = document.querySelector("#chat-messages-container");
-var messages = [];
-
-send.addEventListener("click", checkMessage); //test
+var allMessages = document.querySelectorAll(".chat-message");
+var lastMessage;
+var howManyMessages;
 
 window.setInterval(checkMessage, 1000);
 
-function checkMessage(){
+function checkMessage() {
+    howManyMessages = allMessages.length;
+    theLast = howManyMessages - 1;
+    lastMessage = allMessages[theLast];
+    
     $.ajax({
         type : "post",
-        //data        : {},
+        //data        : {id: howManyMessages, lastMessage: lastMessage,},
         url : "get-message.php",
     })
     .done(function(response) {
@@ -17,8 +20,5 @@ function checkMessage(){
     })
     .fail(function() {
         alert("Error!");
-    })
-    .always(function() {
-        $('.loading').hide();
     });
 }
