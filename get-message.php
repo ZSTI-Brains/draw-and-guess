@@ -18,7 +18,8 @@
             while ($row = $result->fetch_assoc())
                 $msg[] = $row;
 
-            echo json_encode($msg);
+            if (count($msg) > 0)
+                echo json_encode($msg);
         }
 
         $mysqli->close();

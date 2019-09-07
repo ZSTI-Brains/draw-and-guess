@@ -1,41 +1,41 @@
 var chatMessagesContainer = document.querySelector("#chat-messages-container");
 var messages = [];
-var id;
 
 window.setInterval(checkMessage, 1000);
 
+function getMessageId() {
+    return messages.length === 0 ? 0 : messages[messages.length - 1].id;
+}
+
 function checkMessage() {
-    if(id == undefined)
-        id = 0;
-          
     $.ajax({
-        type : "post",
-        data : {messageId: id},
-        url : "get-message.php",
+        type: "post",
+        data: { messageId: getMessageId() },
+        url: "get-message.php"
     })
     .done(function(response) {
-        messages = JSON.parse(response);
-        
-//        for (i = id; i < messages.length; i++) {
-//            var mess = document.createElement("div");
-//            var p_message = document.createElement("p");
-//            var p_nickname = document.createElement("p");
-//
-//            p_message.innerText = messages[i].message;
-//            p_nickname.innerText = messages[i].nickname;
-//
-//            mess.classList.add("chat-message");
-//            p_nickname.classList.add("nickname");
-//
-//            mess.append(p_message);
-//            mess.append(p_nickname);
-//
-//            chatMessagesContainer.appendChild(mess); 
-//        } 
-        
-        id = messages.length;  
-    })
-    .fail(function() {
-        alert("Error!");
+        if (response !== "") {
+            let m = JSON.parse(response);
+
+            for (let i = 0; i < m.length; i++)
+                messages.push(m[i]);
+
+            for (let i = 0; i < m.length; i++) {
+                let mess = document.createElement("div");
+                let pMessage = document.createElement("p");
+                let pNickname = document.createElement("p");
+
+                pMessage.innerText = m[i].message;
+                pNickname.innerText = m[i].nickname;
+
+                mess.classList.add("chat-message");
+                pNickname.classList.add("nickname");
+
+                mess.append(pMessage);
+                mess.append(pNickname);
+
+                chatMessagesContainer.appendChild(mess);
+            }
+        }
     });
 }
