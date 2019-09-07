@@ -38,5 +38,30 @@ function getMessage() {
     });
 }
 
+<<<<<<< HEAD
 getMessage();
 setInterval(getMessage, 1000);
+=======
+var inputContainer = document.querySelector("#chat-input-container");
+
+inputContainer.addEventListener("keydown", function(event){
+    if(event.key === "Enter") {
+        sendMessage();   
+    }
+});
+
+function sendMessage() {
+    var text = document.querySelector("input[type=text]").value;
+    console.log(text);
+    
+    $.ajax({
+        type: "post",
+        data: { message: text },
+        url: "get-message.php"
+    })
+}
+
+
+
+
+>>>>>>> 7052f0ca8b0754bf169ea3bed053ff98db08390f
