@@ -43,7 +43,7 @@ setInterval(getMessage, 1000);
 
 var inputContainer = document.querySelector("#chat-input-container");
 
-inputContainer.addEventListener("keydown", function(event){
+inputContainer.addEventListener("keydown", function(event) {
     if(event.key === "Enter") {
         sendMessage();
     }
@@ -56,6 +56,6 @@ function sendMessage() {
     $.ajax({
         type: "post",
         data: { message: text },
-        url: "get-message.php"
+        url: "send-message.php"
     })
 }
