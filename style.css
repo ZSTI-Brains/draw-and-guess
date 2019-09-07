@@ -52,7 +52,15 @@ main .row.main > div:last-child {
 }
 
 #word-container {
+    display: flex;
     height: 150px;
+    justify-content: center;
+    align-items: center;
+    letter-spacing: .2rem;
+}
+
+#word-container div {
+    font: 2.7rem 'Open Sans';
 }
 
 #chat-container {

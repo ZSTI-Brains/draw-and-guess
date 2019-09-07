@@ -6,7 +6,7 @@
 
     $mysqli = new mysqli($db_server, $db_user, $db_pass, $db_name);
 
-    $query = "SELECT chat_messages.message, users.nickname FROM chat_messages INNER JOIN users ON chat_messages.user_id = users.id";
+    $query = "SELECT name FROM game_words ORDER BY RAND() LIMIT 1";
 
     if ($result = $mysqli->query($query)) {
         /*$msg = array();
@@ -16,8 +16,16 @@
 
         echo json_encode($msg);*/
         while ($row = $result->fetch_assoc())
-            echo "<div class=\"chat-message\"><p class=\"message\">" . $row["message"] . "</p><p class=\"nickname\">" . $row["nickname"] . "</p></div>";
+            echo "<div>" . convert($row["name"]) . "</div>";
     }
 
     $mysqli->close();
+
+    function convert($str) {
+        $l = strlen($str);
+        for ($i = 0; $i < $l; $i++)
+            if ($str[$i] != " ") $str[$i] = "_";
+
+        return $str;
+    }
 ?>

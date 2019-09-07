@@ -14,7 +14,9 @@
 			<div class="row main">
 				<div id="drawing-container"></div>
 				<div>
-					<div id="word-container"></div>
+					<div id="word-container">
+						<?php include("get-word.php"); ?>
+					</div>
 					<div id="chat-container">
 						<div id="chat-messages-container">
 							<?php include("get-message.php"); ?>
