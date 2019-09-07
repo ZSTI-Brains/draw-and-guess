@@ -56,6 +56,6 @@ function sendMessage() {
     $.ajax({
         type: "post",
         data: { message: text },
-        url: "get-message.php"
+        url: "send-message.php"
     })
 }
