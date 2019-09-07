@@ -1,37 +1,36 @@
 var chatMessagesContainer = document.querySelector("#chat-messages-container");
-var allMessages = document.querySelectorAll(".chat-message");
 var messages = [];
-var m;
-var result = [];
-var j = 0;
+var id = 6; //fixed
 
 window.setInterval(checkMessage, 1000);
 
 function checkMessage() {
-    m = allMessages.length;
-    
     $.ajax({
         type : "post",
-        data        : {messageId: m,},
+        data : {messageId: id},
         url : "get-message.php",
     })
     .done(function(response) {
-//        console.log(response);
-//        console.log(response.length);
-        for(i = 0; i < response.length; i++){
-            if(response[i] != "\"" && response[i] != "[" && response[i] != "]" && response[i] != "{") {
-                result[j] += response[i];
-            }
-            if(response[i] == "}")
-                j++;
+        messages = JSON.parse(response);
+        for (i = id; i < messages.length; i++) {
+            var message = document.createElement("div");
+            var p_message = document.createElement("p");
+            var p_nickname = document.createElement("p");
+            
+            p_message.innerText = messages[i].message;
+            p_nickname.innerText = messages[i].nickname;
+            
+            message.classList.add("chat-message");
+            p_nickname.classList.add("nickname");
+            
+            message.append(p_message);
+            message.append(p_nickname);
+            
+            chatMessagesContainer.appendChild(message); 
         }
-        console.log(result);
-        
-        // message [id][message][nickname]
-        chatMessagesContainer.innerHTML = "<div class=\"chat-message\">" + result + "</div>";
-        //pushed = messages.push(response);
-        //chatMessagesContainer.innerHTML = messages;
-
+        id = messages.length;
+        console.log(messages.length)
+        //console.log(id);
     })
     .fail(function() {
         alert("Error!");
