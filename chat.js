@@ -41,6 +41,7 @@ function getMessage() {
 getMessage();
 setInterval(getMessage, 1000);
 
+
 var inputContainer = document.querySelector("#chat-input-container");
 
 inputContainer.addEventListener("keydown", function(event){
@@ -50,12 +51,16 @@ inputContainer.addEventListener("keydown", function(event){
 });
 
 function sendMessage() {
-    var text = document.querySelector("input[type=text]").value;
-    console.log(text);
-
-    $.ajax({
-        type: "post",
-        data: { message: text },
-        url: "send-message.php"
-    })
+    var text = document.querySelector("input[type=text]");
+    var textValue = text.value;
+    if(textValue !== ""){
+        console.log(textValue);
+        $.ajax({
+            type: "post",
+            data: { message: textValue },
+            url: "send-message.php"
+        });
+    }
+    text.placeholder = "Type your thought here...";
+    textValue = " ";
 }
