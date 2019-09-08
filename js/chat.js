@@ -1,6 +1,12 @@
 var chatMessagesContainer = document.querySelector("#chat-messages-container");
-var messages = [];
+var inputContainer = document.querySelector("#chat-input-container");
+inputContainer.addEventListener("keydown", function(event) {
+    if(event.key === "Enter") {
+        sendMessage();
+    }
+});
 
+var messages = [];
 function getMessageId() {
     return messages.length === 0 ? 0 : messages[messages.length - 1].id;
 }
@@ -9,7 +15,7 @@ function getMessage() {
     $.ajax({
         type: "post",
         data: { messageId: getMessageId() },
-        url: "get-message.php"
+        url: "php/get-message.php"
     })
     .done(function(response) {
         if (response !== "") {
@@ -38,28 +44,21 @@ function getMessage() {
     });
 }
 
-getMessage();
-setInterval(getMessage, 1000);
-
-
-var inputContainer = document.querySelector("#chat-input-container");
-
-inputContainer.addEventListener("keydown", function(event) {
-    if(event.key === "Enter") {
-        sendMessage();
-    }
-});
-
 function sendMessage() {
     var text = document.querySelector("input[type=text]");
     var textValue = text.value;
-    if(textValue !== ""){
+
+    if(textValue !== "") {
         console.log(textValue);
         $.ajax({
             type: "post",
             data: { message: textValue },
-            url: "send-message.php"
+            url: "php/send-message.php"
         });
     }
+
     text.value = "";
 }
+
+getMessage();
+setInterval(getMessage, 1000);
