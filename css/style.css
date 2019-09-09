@@ -51,6 +51,10 @@ main .row.main > div:last-child {
     min-width: 200px;
 }
 
+#drawing-container {
+    overflow: hidden;
+}
+
 #word-container {
     display: flex;
     height: 100px;
