@@ -1,8 +1,5 @@
 <?php
-    $db_server = "127.0.0.1";
-    $db_user = "root";
-    $db_pass = "";
-    $db_name = "draw_and_guess";
+    require_once "password.php";
 
     if (isset($_POST["message"])) {
         $message = $_POST["message"];
