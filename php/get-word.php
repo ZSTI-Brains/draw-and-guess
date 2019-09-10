@@ -1,8 +1,5 @@
 <?php
-    $db_server = "127.0.0.1";
-    $db_user = "root";
-    $db_pass = "";
-    $db_name = "draw_and_guess";
+    require_once "password.php";
 
     $mysqli = new mysqli($db_server, $db_user, $db_pass, $db_name);
 
