@@ -6,11 +6,11 @@
         $password = $_POST['password'];
         $mysqli = new mysqli($db_server, $db_user, $db_pass, $db_name);
         
-        $query = "SELECT * FROM `users` WHERE `nickname` = '$nickname' AND password='$password'";
+        $query = "SELECT * FROM `users` WHERE `nickname` = '$nickname' AND password = '$password'";
         
         if ($result = $mysqli->query($query)) {
             $is = $result->num_rows;
-            if($is > 0) {
+            if ($is > 0) {
                 $row = $result->fetch_assoc();
                 $_SESSION["nickname"] = $row["nickname"];
                 $_SESSION["password"] = $row["password"];

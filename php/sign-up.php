@@ -2,16 +2,12 @@
     require_once "password.php";
 
 
-    //if (isset($_POST["nickname"])) {
+    if (isset($_POST["nickname"]) && isset($_POST["password"]) && isset($_POST["email"])) {
         $mysqli = new mysqli($db_server, $db_user, $db_pass, $db_name);
         
-        //$nickname = $_POST["nickname"];
-        //$password = $_POST["password"];
-        //$email = $_POST["email"];
-        
-        $nickname = "dsad";
-        $password = "Hasdsadaslo";
-        $email = "emaildasdas@email.com";
+        $nickname = $_POST["nickname"];
+        $password = $_POST["password"];
+        $email = $_POST["email"];
             
         $query = "SELECT * FROM `users` WHERE `nickname` = '$nickname' OR `email` = '$email'";
 
@@ -19,16 +15,17 @@
             $is = $result->num_rows;
             $row = $result->fetch_assoc();
             if($is > 0) {
-                echo "User or email exists.";
+                if ($nickname == $row["nickname"])
+                    echo "User exists.";
+                else if ($email == $row["email"])
+                    echo "Email exists.";
             }
             else {
-                $query = "INSERT INTO `users`(`id`,`nickname`, `password`, `email`) VALUES ('id','$nickname','$password','$email')";
+                $query = "INSERT INTO `users`(`id`,`nickname`, `password`, `email`) VALUES ('','$nickname','$password','$email')";
                 $mysqli->query($query);
+                echo "Account created successful!";
             }
         }
-
-
         $mysqli->close();
-    //}
-      
+    } 
 ?>
