@@ -6,7 +6,6 @@
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&display=swap">
 		<link rel="stylesheet" href="css/style.css">
 		<script src="js/jquery-3.4.1.min.js"></script>
-		<script src="js/two.min.js"></script>
 	</head>
 	<body>
 		<main>

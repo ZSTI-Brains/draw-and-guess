@@ -1,38 +1,40 @@
 var canvas = $("#drawing-canvas");
-canvas.mousedown((evt) => { startDraw(evt); });
-canvas.mousemove((evt) => { draw(evt); });
 var ctx = document.getElementById("drawing-canvas").getContext("2d");
-var x, y, pX, pY;
-var pressed;
+var pressed = false;
+var path = [];
+var paths = [];
 
-function startDraw(evt) {
+canvas.mousedown(function (e) {
     pressed = true;
+    path.push({ x: e.offsetX, y: e.offsetY });
 
-    let rect = evt.target.getBoundingClientRect();
-    x = pX = evt.clientX - rect.left;
-    y = pY = evt.clientY - rect.top;
-ctx.beginPath();
-    ctx.moveTo(x, y);
-}
+    ctx.lineWidth = 6;
+    ctx.lineCap = ctx.lineJoin = "round";
+});
 
-function draw(evt) {
+canvas.mousemove(function (e) {
     if (pressed) {
-        let rect = evt.target.getBoundingClientRect();
-        x = evt.clientX - rect.left;
-        y = evt.clientY - rect.top;
+        path.push({ x: e.offsetX, y: e.offsetY });
 
-        if (x != pX || y != pY) {
-                    console.log(x);
-            ctx.lineWidth = 10;
-            //ctx.beginPath();
-            ctx.lineTo(x, y);
-            ctx.stroke();
-
-            pX = x;
-            pY = y;
+        ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
+        ctx.beginPath();
+        ctx.moveTo(path[0].x, path[0].y);
+        for (let i = 1; i < path.length; i++) {
+            ctx.lineTo(path[i].x, path[i].y);
         }
+        /*for (let i = 0; i < paths.length; i++) {
+            ctx.moveTo(paths[i][0].x, paths[i][0].y);
+            for (let j = 1; j < paths[i].length; j++) {
+                ctx.lineTo(paths[i][j].x, paths[i][j].y);
+            }
+        }*/
+
+        ctx.stroke();
     }
-    //ctx.beginPath();
-    //ctx.arc(x, y, 10, 0, Math.PI * 2)
-    //ctx.fill();
-}
+});
+
+canvas.mouseup(function (e) {
+    pressed = false;
+    path = [];
+    paths.push(path);
+});
