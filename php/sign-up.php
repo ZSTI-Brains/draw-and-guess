@@ -1,5 +1,5 @@
 <?php
-    require_once "db-connection.php";
+    require_once("db-connection.php");
 
 
     if (isset($_POST["nickname"]) && isset($_POST["password"]) && isset($_POST["email"])) {
