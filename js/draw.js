@@ -3,33 +3,30 @@ var ctx = document.getElementById("drawing-canvas").getContext("2d");
 var pressed = false;
 var path = [];
 var paths = [];
+var previousPoint, currentPoint;
 
 canvas.mousedown(function (e) {
     pressed = true;
-    path.push({ x: e.offsetX, y: e.offsetY });
+    currentPoint = { x: e.offsetX, y: e.offsetY };
 
     ctx.lineWidth = 6;
     ctx.lineCap = ctx.lineJoin = "round";
+    //ctx.moveTo(e.offsetX, e.offsetY);
+    //ctx.beginPath();
 });
 
 canvas.mousemove(function (e) {
     if (pressed) {
-        path.push({ x: e.offsetX, y: e.offsetY });
+        previousPoint = currentPoint;
+        currentPoint = { x: e.offsetX, y: e.offsetY };
+        let d = distance(previousPoint, currentPoint);
+        //console.log(d);
 
-        ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
-        ctx.beginPath();
-        ctx.moveTo(path[0].x, path[0].y);
-        for (let i = 1; i < path.length; i++) {
-            ctx.lineTo(path[i].x, path[i].y);
+        for (let i = 0; i < d; i++) {
+            ctx.beginPath();
+            ctx.arc(e.offsetX, e.offsetY, 6, 0, Math.PI * 2);
+            ctx.fill();
         }
-        /*for (let i = 0; i < paths.length; i++) {
-            ctx.moveTo(paths[i][0].x, paths[i][0].y);
-            for (let j = 1; j < paths[i].length; j++) {
-                ctx.lineTo(paths[i][j].x, paths[i][j].y);
-            }
-        }*/
-
-        ctx.stroke();
     }
 });
 
@@ -38,3 +35,7 @@ canvas.mouseup(function (e) {
     path = [];
     paths.push(path);
 });
+
+function distance(p1, p2) {
+    return Math.sqrt(Math.pow(p2.x - p1.x, 2) + Math.pow(p2.y - p1.y, 2));
+}

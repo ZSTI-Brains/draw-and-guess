@@ -1,5 +1,5 @@
 <?php
-    require_once "password.php";
+    require_once "db-connection.php";
 
     if (isset($_POST["messageId"])) {
         $id = $_POST["messageId"];

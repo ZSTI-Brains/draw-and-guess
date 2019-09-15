@@ -1,14 +1,14 @@
 <?php
-    require_once "password.php";
+    require_once "db-connection.php";
 
 
     if (isset($_POST["nickname"]) && isset($_POST["password"]) && isset($_POST["email"])) {
         $mysqli = new mysqli($db_server, $db_user, $db_pass, $db_name);
-        
+
         $nickname = $_POST["nickname"];
         $password = $_POST["password"];
         $email = $_POST["email"];
-            
+
         $query = "SELECT * FROM `users` WHERE `nickname` = '$nickname' OR `email` = '$email'";
 
         if ($result = $mysqli->query($query)) {
@@ -27,5 +27,5 @@
             }
         }
         $mysqli->close();
-    } 
+    }
 ?>

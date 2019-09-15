@@ -8,7 +8,7 @@
 		<script src="js/jquery-3.4.1.min.js"></script>
 	</head>
 	<body>
-		<main>
+		<main id="game">
 			<div class="row scoreboard">
 				<div id="scoreboard-container"></div>
 			</div>

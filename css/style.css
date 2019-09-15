@@ -6,6 +6,11 @@ html {
     font-size: 10px;
 }
 
+.logo-header {
+    font: 700 4.8rem 'Open Sans';
+    text-align: center;
+}
+
 main {
     width: 100%;
     padding: .4rem;
@@ -15,38 +20,110 @@ main, main * {
     box-sizing: border-box;
 }
 
-main .row {
+h1 {
+    color: #282828;
+}
+
+#game-menu {
+    display: flex;
+    flex-flow: column wrap;
+    height: calc(100vh - 65px);
+    min-height: 300px;
+    justify-content: center;
+}
+
+#game-menu .row {
+    display: flex;
+    padding: .4rem;
+    justify-content: center;
+    align-items: center;
+}
+
+#game-menu .row:nth-child(3) {
+    padding-top: 2.4rem;
+}
+
+#game-menu .avatar {
+    display: inline-block;
+    width: 80px;
+    height: 80px;
+    margin: 0 1.2rem;
+}
+
+#game-menu .avatar img {
+    width: 100%;
+    height: 100%;
+}
+
+#game-menu input[type=text] {
+    width: 400px;
+    padding: .9rem;
+    color: #3e3e3e;
+    font: 1.3rem 'Open Sans';
+    border: 1px solid #DDDDDD;
+    border-radius: 1rem;
+    outline: none;
+}
+
+#game-menu input[type=submit] {
+    width: 256px;
+    padding: .8rem;
+    background: #997ef1;
+    color: white;
+    font: 700 1.6rem 'Open Sans';
+    border: none;
+    border-radius: 1rem;
+    cursor: pointer;
+    outline: none;
+    -webkit-transition: background .2s ease-in;
+    -moz-transition: background .2s ease-in;
+    transition: background .2s ease-in;
+}
+
+#game-menu input[type=submit]:hover {
+    width: 256px;
+    padding: .8rem;
+    background: #866fef;
+    color: white;
+    font: 700 1.6rem 'Open Sans';
+    border: none;
+    border-radius: 1rem;
+    cursor: pointer;
+    outline: none;
+}
+
+#game .row {
     display: flex;
     padding: .4rem;
 }
 
-main .row > div {
+#game .row > div {
     border: 1px solid #DDDDDD;
 }
 
-main .row.scoreboard {
+#game .row.scoreboard {
     height: 100px;
 }
 
-main .row.scoreboard div {
+#game .row.scoreboard div {
     background: #EEEEEE;
 }
 
-main .row.scoreboard > div {
+#game .row.scoreboard > div {
     width: 100%;
 }
 
-main .row.main {
+#game .row.main {
     height: calc(100vh - (100px + .8rem));
     min-height: 450px;
 }
 
-main .row.main > div:first-child {
+#game .row.main > div:first-child {
     width: 80%;
     margin-right: .8rem;
 }
 
-main .row.main > div:last-child {
+#game .row.main > div:last-child {
     width: 20%;
     min-width: 200px;
 }
