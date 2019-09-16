@@ -13,7 +13,7 @@
             <div class="row">
                 <i class="fas fa-chevron-left" style="font-size: 3.2rem; color: #282828"></i>
                 <div class="avatar">
-                    <img src="assets/avatars/banana.png">
+                    <img src="assets/avatars/banana.png" data-name="banana">
                 </div>
                 <i class="fas fa-chevron-right" style="font-size: 3.2rem; color: #282828"></i>
             </div>
@@ -27,9 +27,13 @@
                 <input type="submit" value="PLAY WITH FRIENDS">
             </div>
         </main>
+        <form action="join.php" method="post">
+            <input id="nickname" type="hidden">
+            <input id="avatar-name" type="hidden">
+        </form>
         <script>
             document.getElementById('play-button').addEventListener('click', (e) => {
-                console.log(e);
+                document.getElementById('play-button').value = ;
             });
         </script>
     </body>
